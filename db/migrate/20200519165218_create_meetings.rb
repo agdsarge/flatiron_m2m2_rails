@@ -3,7 +3,7 @@ class CreateMeetings < ActiveRecord::Migration[6.0]
     create_table :meetings do |t|
       t.integer :applicant_id
       t.integer :interviewer_id
-      t.ddatetime :date
+      t.datetime :date
       t.integer :score
 
       t.timestamps

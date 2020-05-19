@@ -22,9 +22,13 @@ class ApplicantsController < ApplicationController
     end
 
     def update
+        @applicant.update(app_params(:name, :cv, :graduation_year))
+        redirect_to applicant_path(@applicant)
     end
 
     def destroy
+        @applicant.destroy
+        redirect_to applicants_path
     end
 
 

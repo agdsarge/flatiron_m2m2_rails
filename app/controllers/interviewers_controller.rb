@@ -22,9 +22,13 @@ class InterviewersController < ApplicationController
     end
 
     def update
+        @interviewer.update(int_params(:name, :department, :cheer))
+        redirect_to interviewer_path(@interviewer)
     end
 
     def destroy
+        @interviewer.destroy
+        redirect_to interviewers_path
     end
 
 

@@ -5,4 +5,10 @@
 <p>Cheerfulness score: <%= @interviewer.cheer %></p>
 
 
+<%= link_to "Edit this entry", edit_interviewer_path %>
+<br>
+<%= form_tag interviewer_path(@interviewer), method: "delete" do %>
+<%= submit_tag "Delete this entry" %>
+<% end %>
+<br>
 <%= link_to "Interviewer Index", interviewers_path %>

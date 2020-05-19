@@ -4,4 +4,11 @@
 <p><%= @applicant.cv %></p>
 <p><%= @applicant.graduation_year %></p>
 
+
+<%= link_to "Edit this entry", edit_applicant_path %>
+<br>
+<%= form_tag applicant_path(@applicant), method: "delete" do %>
+<%= submit_tag "Delete this entry" %>
+<% end %>
+<br>
 <%= link_to "Applicant Index", applicants_path %>

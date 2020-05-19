@@ -1,0 +1,9 @@
+<h2> Interviewers </h2>
+<ul>
+    <% @interviewers.each do |intv| %>
+        <li><%= link_to intv.name, interviewer_path(intv)%></li>
+    <% end %>
+
+</ul>
+
+<%= link_to "Home", "/" %> 

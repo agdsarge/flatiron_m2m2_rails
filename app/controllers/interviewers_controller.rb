@@ -1,6 +1,6 @@
 class InterviewersController < ApplicationController
 
-    before_action :which_interviewer, only: [:show, :edit, :update, :destroy]
+    before_action :which_interviewer, only: [:show, :edit, :update, :destroy, :schedule, :create_meeting]
 
     def index
         @interviewers = Interviewer.all
@@ -31,6 +31,15 @@ class InterviewersController < ApplicationController
         redirect_to interviewers_path
     end
 
+    def schedule
+        @meeting = Meeting.new
+    end
+
+    def create_meeting
+       meeting_date = DateTime.new(params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i)
+       Meeting.create(applicant_id: params[:meeting][:applicant], interviewer_id: params[:interviewer_id], date: meeting_date)
+       redirect_to interviewer_path(@interviewer)
+    end
 
     private
     def which_interviewer
